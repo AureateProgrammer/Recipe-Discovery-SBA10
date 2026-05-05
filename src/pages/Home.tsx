@@ -1,13 +1,13 @@
 import { useFetch } from '../hooks/useFetch';
 
-interface Meal {
+export interface Meal {
     idMeal: string;
     strMeal: string;
     strMealThumb: string;
     strCategory: string;
 }
 
-interface MealResponse {
+export interface MealResponse {
     meals: Meal[];
 }
 
