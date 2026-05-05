@@ -1,9 +1,9 @@
-import {useSafeState, useEffect} from 'react';
+import {useState, useEffect,} from 'react';
 
 export function useFetch<T>(url: string) {
-    const [data, setData] = useSafeState<T | null>(null);
-    const [loading, setLoading] = useSafeState(true);
-    const [error, setError] = useSafeState<Error | null>(null);
+    const [data, setData] = useState<T | null>(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<Error | null>(null);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -19,3 +19,9 @@ export function useFetch<T>(url: string) {
             }
             setLoading(false);
         };
+        fetchData();
+    }, [url]);
+
+    return { data, loading, error };
+}
+
