@@ -1,4 +1,4 @@
-import{createContext, useContext, useState} from "react";
+import{createContext, useContext,} from "react";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 
 interface FavoriteContextType {
@@ -9,7 +9,7 @@ interface FavoriteContextType {
 
 const FavoriteContext = createContext<FavoriteContextType | undefined>(undefined);
 
-export const FavoriteProvider: React.FC = ({ children }) => {
+export const FavoriteProvider: React.FC = ({ }) => {
     const [favorites, setFavorites] = useLocalStorage<string[]>('favorites', []);
 
     const addFavorite = (id: string) => {
