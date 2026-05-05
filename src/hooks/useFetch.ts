@@ -1,4 +1,4 @@
-import {useState, useEffect,} from 'react';
+import { useState, useEffect } from 'react';
 
 export function useFetch<T>(url: string) {
     const [data, setData] = useState<T | null>(null);
@@ -16,12 +16,12 @@ export function useFetch<T>(url: string) {
                 setData(result);
             } catch (err) {
                 setError(err instanceof Error ? err : new Error(String(err)));
+            } finally {
+                setLoading(false);
             }
-            setLoading(false);
         };
         fetchData();
     }, [url]);
 
     return { data, loading, error };
 }
-
